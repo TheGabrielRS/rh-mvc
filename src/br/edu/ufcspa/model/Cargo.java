@@ -14,4 +14,16 @@ public class Cargo {
 
     private Pessoa empregadoAtual;
 
+
+    public Cargo(int id, String nome, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+
 }
