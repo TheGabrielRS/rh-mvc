@@ -18,7 +18,7 @@ public class Pessoa {
     private ArrayList<Cargo>    cargosAnteriores;
 
 
-    public Pessoa(int id, String cpf, String nome, String sobrenome, Cargo cargoAtual) {
+    public Pessoa(int id, String nome, String sobrenome, String cpf, Cargo cargoAtual) {
         this.id = id;
         this.cpf = cpf;
         this.nome = nome;
@@ -28,6 +28,10 @@ public class Pessoa {
 
     public String getNome(){
         return this.nome;
+    }
+
+    public String getCpf(){
+        return this.cpf;
     }
 
 

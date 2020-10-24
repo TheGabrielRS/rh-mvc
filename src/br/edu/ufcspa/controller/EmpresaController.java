@@ -42,11 +42,16 @@ public class EmpresaController {
     public boolean adicionarPessoa(String nomePessoa, String sobrenomePessoa, String cpf, int idCargo){
 
         Cargo cargoPessoa = empresa.buscaCargo(idCargo);
+        if(cargoPessoa == null){
+            return false;
+        }
         int idPessoa = empresa.numeroPessoas();
         Pessoa novaPessoa = pessoaController.criaPessoa(idPessoa, nomePessoa, sobrenomePessoa, cpf, cargoPessoa);
 
-        if(novaPessoa != null)
+        if(novaPessoa != null){
+            this.empresa.adicionarPessoa(novaPessoa);
             return true;
+        }
         return false;
     }
 

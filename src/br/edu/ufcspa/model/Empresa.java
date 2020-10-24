@@ -13,6 +13,8 @@ public class Empresa {
 
     public Empresa(String nome) {
         this.nome = nome;
+        this.cargos = new HashMap<Integer, Cargo>();
+        this.pessoas = new HashMap<String, Pessoa>();
     }
 
     public int numeroCargos(){
@@ -36,7 +38,7 @@ public class Empresa {
         if(pessoas.containsKey(pessoa.getNome()))
             return false;
         else{
-            pessoas.put(pessoa.getNome(), pessoa);
+            pessoas.put(pessoa.getCpf(), pessoa);
             return true;
         }
     }
