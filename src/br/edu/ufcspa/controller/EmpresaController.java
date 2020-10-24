@@ -2,6 +2,7 @@ package br.edu.ufcspa.controller;
 
 import br.edu.ufcspa.model.Empresa;
 import br.edu.ufcspa.model.Cargo;
+import br.edu.ufcspa.model.Pessoa;
 
 
 public class EmpresaController {
@@ -22,7 +23,7 @@ public class EmpresaController {
         }
     }
     
-    public boolean salvarEmpresa(Empresa empresa){
+    private boolean salvarEmpresa(Empresa empresa){
         this.empresa = empresa;
         if (empresa != null)
             return true;
@@ -38,8 +39,19 @@ public class EmpresaController {
        
     }
 
-    public boolean adicionarPessoa(String nomePessoa, String sobrenomePessoa, int idCargo){
-        Pessoa novaPessoa = pessoaController.criaPessoa(nomePessoa, sobrenomePessoa, idCargo);
+    public boolean adicionarPessoa(String nomePessoa, String sobrenomePessoa, String cpf, int idCargo){
+
+        Cargo cargoPessoa = empresa.buscaCargo(idCargo);
+        int idPessoa = empresa.numeroPessoas();
+        Pessoa novaPessoa = pessoaController.criaPessoa(idPessoa, nomePessoa, sobrenomePessoa, cpf, cargoPessoa);
+
+        if(novaPessoa != null)
+            return true;
+        return false;
+    }
+
+    public Empresa listarEstruturaDaEmpresa(){
+        return empresa;
     }
 
 
