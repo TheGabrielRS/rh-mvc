@@ -19,11 +19,15 @@ public class Empresa {
         return cargos.size();
     }
 
+    public int numeroPessoas(){
+        return pessoas.size();
+    }
+
     public boolean adicionarCargo(Cargo cargo){
-        if(cargos.containsKey(cargo.getNome()))
+        if(cargos.containsKey(cargo.getId()))
             return false;
         else{
-            cargos.put(cargo.getNome(), cargo);
+            cargos.put(cargo.getId(), cargo);
             return true;
         }
     }
@@ -38,9 +42,24 @@ public class Empresa {
     }
 
     public Cargo buscaCargo(int id){
-
+        if(cargos.size() < id || id <= 0)
+            return null;
+        else{
+            return cargos.get(id);
+        }
     }
 
+    public String listarCargos(){
+        return this.cargos.toString();
+    }
+
+    public String listarPessoas(){
+        return this.pessoas.toString();
+    }
+
+    public String getNomeEmpresa(){
+        return this.nome;
+    }
 
 
 }

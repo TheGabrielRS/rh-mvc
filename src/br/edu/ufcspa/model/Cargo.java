@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Cargo {
     
-    private int    id;
+    private Integer    id;
 
     private String nome;
 
@@ -23,6 +23,10 @@ public class Cargo {
 
     public String getNome(){
         return this.nome;
+    }
+
+    public Integer getId(){
+        return this.id;
     }
 
 
